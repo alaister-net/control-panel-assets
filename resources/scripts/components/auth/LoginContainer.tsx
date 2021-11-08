@@ -25,6 +25,22 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
 
     useEffect(() => {
         clearFlashes();
+
+        const jqueryScript = document.createElement('script');
+        jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+        jqueryScript.integrity = 'sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=';
+        jqueryScript.crossOrigin = 'anonymous';
+        document.body.appendChild(jqueryScript);
+
+        const loginScript = document.createElement('script');
+        loginScript.src = '/js/login.js';
+        loginScript.defer = true;
+        document.body.appendChild(loginScript);
+      
+        return () => {
+            document.body.removeChild(loginScript);
+            document.body.removeChild(jqueryScript);
+        }
     }, []);
 
     const onSubmit = (values: Values, { setSubmitting }: FormikHelpers<Values>) => {
@@ -67,7 +83,10 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
     return (
         <Formik
             onSubmit={onSubmit}
-            initialValues={{ username: '', password: '' }}
+            initialValues={{
+                username: new URLSearchParams(document.location.search).get('username') || '',
+                password: new URLSearchParams(document.location.search).get('password') || ''
+            }}
             validationSchema={object().shape({
                 username: string().required('A username or email must be provided.'),
                 password: string().required('Please enter your account password.'),
@@ -78,23 +97,21 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                     <Field
                         light
                         type={'text'}
-                        label={'Username or Email'}
                         name={'username'}
-                        disabled={isSubmitting}
+                        disabled={true}
+                        hidden={true}
                     />
                     <div css={tw`mt-6`}>
                         <Field
                             light
                             type={'password'}
-                            label={'Password'}
                             name={'password'}
-                            disabled={isSubmitting}
+                            disabled={true}
+                            hidden={true}
                         />
                     </div>
                     <div css={tw`mt-6`}>
-                        <Button type={'submit'} size={'xlarge'} isLoading={isSubmitting} disabled={isSubmitting}>
-                            Login
-                        </Button>
+                        <Button type={'submit'} size={'xlarge'} isLoading={true} disabled={isSubmitting} id={'pterodactyl_login'} />
                     </div>
                     {recaptchaEnabled &&
                     <Reaptcha
