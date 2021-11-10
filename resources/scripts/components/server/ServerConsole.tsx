@@ -10,7 +10,6 @@ import PowerControls from '@/components/server/PowerControls';
 import { EulaModalFeature, JavaVersionModalFeature } from '@feature/index';
 import ErrorBoundary from '@/components/elements/ErrorBoundary';
 import Spinner from '@/components/elements/Spinner';
-import AdSense from '@/components/elements/AdSense';
 
 export type PowerAction = 'start' | 'stop' | 'restart' | 'kill';
 
@@ -50,14 +49,12 @@ const ServerConsole = () => {
                             <PowerControls/>
                         </Can>
                 }
-                <AdSense/>
             </div>
             <div css={tw`w-full lg:w-3/4 mt-4 lg:mt-0 lg:pl-4`}>
                 <Spinner.Suspense>
                     <ErrorBoundary>
                         <ChunkedConsole/>
                     </ErrorBoundary>
-                    <AdSense/>
                     <ChunkedStatGraphs/>
                 </Spinner.Suspense>
                 <React.Suspense fallback={null}>
