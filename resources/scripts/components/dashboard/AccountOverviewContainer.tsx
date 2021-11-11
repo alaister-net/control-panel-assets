@@ -37,8 +37,10 @@ export default () => {
             </MessageBox>
             }
             <Container css={[ tw`mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10` ]}>
-                <ContentBox title={'Update Password'} showFlashes={'account:password'}>
-                    <UpdatePasswordForm/>
+                <ContentBox title={'Your SFTP Password'}>
+                    <p css={tw`text-xs text-neutral-200`}>
+                        <a href="https://client.alaister.net/account/servers/" target="_blank">Click here to see or reset your SFTP password.</a>
+                    </p>
                 </ContentBox>
                 <ContentBox
                     css={tw`mt-8 md:mt-0 md:ml-8`}

@@ -52,7 +52,7 @@ export default () => {
                                 <div css={tw`flex-1`}>
                                     <div css={tw`border-l-4 border-cyan-500 p-3`}>
                                         <p css={tw`text-xs text-neutral-200`}>
-                                            Your SFTP password is the same as the password you use to access this panel.
+                                            <a href="https://client.alaister.net/account/servers/" target="_blank">Click here to see or reset your SFTP password.</a>
                                         </p>
                                     </div>
                                 </div>
