@@ -20,6 +20,7 @@ const ServerConsole = () => {
     const isInstalling = ServerContext.useStoreState(state => state.server.data!.isInstalling);
     const isTransferring = ServerContext.useStoreState(state => state.server.data!.isTransferring);
     const eggFeatures = ServerContext.useStoreState(state => state.server.data!.eggFeatures, isEqual);
+    const dockerImage = ServerContext.useStoreState(state => state.server.data!.dockerImage);
 
     return (
         <ServerContentBlock title={'Console'} css={tw`flex flex-wrap`}>
@@ -48,6 +49,18 @@ const ServerConsole = () => {
                         <Can action={[ 'control.start', 'control.stop', 'control.restart' ]} matchAny>
                             <PowerControls/>
                         </Can>
+                }
+                {dockerImage.includes(':java_') &&
+                    <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
+                        <ContentContainer>
+                            <p css={tw`text-sm text-yellow-900`}>
+                                <strong>Hibernation is enabled!</strong>
+                                <hr/>
+                                When your server has NO online players, you can ignore the 'Can't keep up!' warnings in the console.
+                                <strong>Your server run normally when there is one or more online players.</strong>
+                            </p>
+                        </ContentContainer>
+                    </div>
                 }
             </div>
             <div css={tw`w-full lg:w-3/4 mt-4 lg:mt-0 lg:pl-4`}>

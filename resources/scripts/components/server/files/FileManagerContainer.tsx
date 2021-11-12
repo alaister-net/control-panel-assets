@@ -8,6 +8,7 @@ import { FileObject } from '@/api/server/files/loadDirectory';
 import NewDirectoryButton from '@/components/server/files/NewDirectoryButton';
 import { NavLink, useLocation } from 'react-router-dom';
 import Can from '@/components/elements/Can';
+import ContentContainer from '@/components/elements/ContentContainer';
 import { ServerError } from '@/components/elements/ScreenBlock';
 import tw from 'twin.macro';
 import Button from '@/components/elements/Button';
@@ -59,6 +60,17 @@ export default () => {
 
     return (
         <ServerContentBlock title={'File Manager'} showFlashKey={'files'}>
+            <div css={tw`flex flex-wrap-reverse md:flex-nowrap justify-center mb-4`}>
+                <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
+                    <ContentContainer>
+                        <p css={tw`text-sm text-yellow-900`}>
+                            Maximum upload size is <strong>10 MB</strong>. Multiple files can be uploaded concurrently,
+                            but <strong>folders are not supported</strong>. Please use SFTP for uploading large files
+                            <i>(e.g. JAR files)</i> and folders <i>(e.g. worlds)</i>.
+                        </p>
+                    </ContentContainer>
+                </div>
+            </div>
             <div css={tw`flex flex-wrap-reverse md:flex-nowrap justify-center mb-4`}>
                 <ErrorBoundary>
                     <FileManagerBreadcrumbs
