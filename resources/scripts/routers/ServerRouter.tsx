@@ -48,7 +48,7 @@ const ConflictStateRenderer = () => {
                 <ScreenBlock
                     title={'Server Suspended'}
                     image={ServerErrorSvg}
-                    message={'This server is suspended and cannot be accessed.'}
+                    message={'Please renew your server in the client portal, or by running `/aservers renew` command in our Discord server.'}
                 />
                 :
                 <ScreenBlock
@@ -101,9 +101,12 @@ const ServerRouter = ({ match, location }: RouteComponentProps<{ id: string }>) 
                     <CSSTransition timeout={150} classNames={'fade'} appear in>
                         <SubNavigation>
                             <div>
+                                <a href={`https://client.alaister.net/account/servers/manage?id=${serverId}`} target={'_blank'}>
+                                    Manage <FontAwesomeIcon icon={faExternalLinkAlt}/>
+                                </a>
                                 <NavLink to={`${match.url}`} exact>Console</NavLink>
                                 <Can action={'file.*'}>
-                                    <NavLink to={`${match.url}/files`}>File Manager</NavLink>
+                                    <NavLink to={`${match.url}/files`}>Files</NavLink>
                                 </Can>
                                 <Can action={'database.*'}>
                                     <NavLink to={`${match.url}/databases`}>Databases</NavLink>
@@ -118,7 +121,7 @@ const ServerRouter = ({ match, location }: RouteComponentProps<{ id: string }>) 
                                     <NavLink to={`${match.url}/backups`}>Backups</NavLink>
                                 </Can>
                                 <Can action={'allocation.*'}>
-                                    <NavLink to={`${match.url}/network`}>Network</NavLink>
+                                    <NavLink to={`${match.url}/network`}>Ports</NavLink>
                                 </Can>
                                 <Can action={'startup.*'}>
                                     <NavLink to={`${match.url}/startup`}>Startup</NavLink>

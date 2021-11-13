@@ -7,33 +7,40 @@ import AccountApiContainer from '@/components/dashboard/AccountApiContainer';
 import { NotFound } from '@/components/elements/ScreenBlock';
 import TransitionRouter from '@/TransitionRouter';
 import SubNavigation from '@/components/elements/SubNavigation';
+import { useStoreState } from 'easy-peasy';
 
-export default ({ location }: RouteComponentProps) => (
-    <>
-        <NavigationBar/>
-        {location.pathname.startsWith('/account') &&
-        <SubNavigation>
-            <div>
-                <NavLink to={'/account'} exact>Settings</NavLink>
-                <NavLink to={'/account/api'}>API Credentials</NavLink>
-            </div>
-        </SubNavigation>
-        }
-        <TransitionRouter>
-            <Switch location={location}>
-                <Route path={'/'} exact>
-                    <DashboardContainer/>
-                </Route>
-                <Route path={'/account'} exact>
-                    <AccountOverviewContainer/>
-                </Route>
-                <Route path={'/account/api'} exact>
-                    <AccountApiContainer/>
-                </Route>
-                <Route path={'*'}>
-                    <NotFound/>
-                </Route>
-            </Switch>
-        </TransitionRouter>
-    </>
-);
+export default ({ location }: RouteComponentProps) => {
+    const rootAdmin = useStoreState(state => state.user.data!.rootAdmin);
+
+    return (
+        <>
+            <NavigationBar/>
+            {location.pathname.startsWith('/account') && rootAdmin &&
+            <SubNavigation>
+                <div>
+                    <NavLink to={'/account'} exact>Settings</NavLink>
+                    <NavLink to={'/account/api'}>API Credentials</NavLink>
+                </div>
+            </SubNavigation>
+            }
+            <TransitionRouter>
+                <Switch location={location}>
+                    <Route path={'/'} exact>
+                        <DashboardContainer/>
+                    </Route>
+                    <Route path={'/account'} exact>
+                        <AccountOverviewContainer/>
+                    </Route>
+                    {rootAdmin &&
+                    <Route path={'/account/api'} exact>
+                        <AccountApiContainer/>
+                    </Route>
+                    }
+                    <Route path={'*'}>
+                        <NotFound/>
+                    </Route>
+                </Switch>
+            </TransitionRouter>
+        </>
+    );
+};
