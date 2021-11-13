@@ -80,7 +80,9 @@ export default () => {
                                 {showOnlyAdmin ?
                                     'There are no other servers to display.'
                                     :
-                                    'There are no servers associated with your account.'
+                                    <>
+                                        You have no servers. Create one in the <a href="https://client.alaister.net/account/servers/create/" target="_blank">client portal</a>.
+                                    </>
                                 }
                             </p>
                     )}
