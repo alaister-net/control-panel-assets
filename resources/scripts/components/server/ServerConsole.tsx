@@ -54,8 +54,7 @@ const ServerConsole = () => {
                     <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                         <ContentContainer>
                             <p css={tw`text-sm text-yellow-900`}>
-                                <strong>Hibernation is enabled!</strong>
-                                <hr/>
+                                <strong>Hibernation is enabled!</strong><br />
                                 When your server has NO online players, you can ignore the 'Can't keep up!' warnings in the console.
                                 <strong>Your server run normally when there is one or more online players.</strong>
                             </p>
