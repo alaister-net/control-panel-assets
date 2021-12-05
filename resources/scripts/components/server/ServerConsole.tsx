@@ -50,7 +50,7 @@ const ServerConsole = () => {
                             <PowerControls/>
                         </Can>
                 }
-                {dockerImage.includes(':java_') &&
+                {dockerImage.includes(':minecraft_java_') && !dockerImage.includes(':minecraft_java_no_hibernate_') &&
                     <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                         <ContentContainer>
                             <p css={tw`text-sm text-yellow-900`}>
