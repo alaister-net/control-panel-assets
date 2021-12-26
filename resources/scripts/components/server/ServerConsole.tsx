@@ -61,6 +61,18 @@ const ServerConsole = () => {
                         </ContentContainer>
                     </div>
                 }
+                {dockerImage.includes(':nodejs_') &&
+                    <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
+                        <ContentContainer>
+                            <p css={tw`text-sm text-yellow-900`}>
+                                <strong>How to use our dependency installer?</strong><br />
+                                Create a <code>.node_depends</code> file and enter one dependency in each line.
+                                Restart your bot and the dependencies will be installed automatically.
+                                Learn more in our Discord server.
+                            </p>
+                        </ContentContainer>
+                    </div>
+                }
             </div>
             <div css={tw`w-full lg:w-3/4 mt-4 lg:mt-0 lg:pl-4`}>
                 <Spinner.Suspense>
