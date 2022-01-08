@@ -52,7 +52,7 @@ export default () => {
         setIsLoggingOut(true);
         http.post('/auth/logout').finally(() => {
             // @ts-ignore
-            window.location = '/';
+            window.location = 'https://client.alaister.net/logout';
         });
     };
 
