@@ -81,7 +81,7 @@ export default () => {
                                     'There are no other servers to display.'
                                     :
                                     <>
-                                        <a href="https://client.alaister.net/account/servers/create/" target="_blank">You have no servers. Click here to create one in the client portal.</a>
+                                        <a href="https://client.alaister.net/account/services/order/" target="_blank">You have no services. Click here to order one in the client portal.</a>
                                     </>
                                 }
                             </p>

@@ -73,7 +73,7 @@ export default () => {
                     <NavLink to={'/account'}>
                         <FontAwesomeIcon icon={faUserCircle}/>
                     </NavLink>
-                    <a href={`https://client.alaister.net/account/servers/`} target={'_blank'}>
+                    <a href={`https://client.alaister.net/account/services/`} target={'_blank'}>
                         Client Portal <FontAwesomeIcon icon={faExternalLinkAlt}/>
                     </a>
                     {rootAdmin &&

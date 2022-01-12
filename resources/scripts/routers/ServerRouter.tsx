@@ -101,7 +101,7 @@ const ServerRouter = ({ match, location }: RouteComponentProps<{ id: string }>) 
                     <CSSTransition timeout={150} classNames={'fade'} appear in>
                         <SubNavigation>
                             <div>
-                                <a href={`https://client.alaister.net/account/servers/manage?id=${serverId}`} target={'_blank'}>
+                                <a href={`https://client.alaister.net/account/services/view/?id=${serverId}`} target={'_blank'}>
                                     Manage <FontAwesomeIcon icon={faExternalLinkAlt}/>
                                 </a>
                                 <NavLink to={`${match.url}`} exact>Console</NavLink>
