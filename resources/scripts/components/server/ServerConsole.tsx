@@ -65,10 +65,20 @@ const ServerConsole = () => {
                     <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                         <ContentContainer>
                             <p css={tw`text-sm text-yellow-900`}>
-                                <strong>How to use our dependency installer?</strong><br />
-                                Create a <code>.node_depends</code> file and enter one dependency in each line.
-                                Restart your bot and the dependencies will be installed automatically.
-                                Learn more in our Discord server.
+                                <strong>How to install packages with npm/yarn/pnpm commands?</strong><br />
+                                Start your server. Answer 'yes' to enable the 'Shell Access Mode'. Type your commands and 
+                                press enter to send it. Once it's done, send 'exit' to quit the mode and start your app.
+                            </p>
+                        </ContentContainer>
+                    </div>
+                }
+                {dockerImage.includes(':python_') &&
+                    <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
+                        <ContentContainer>
+                            <p css={tw`text-sm text-yellow-900`}>
+                                <strong>How to install packages with pip commands?</strong><br />
+                                Start your server. Answer 'yes' to enable the 'Shell Access Mode'. Type your commands and 
+                                press enter to send it. Once it's done, send 'exit' to quit the mode and start your app.
                             </p>
                         </ContentContainer>
                     </div>

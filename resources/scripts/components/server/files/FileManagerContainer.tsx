@@ -64,7 +64,7 @@ export default () => {
                 <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                     <ContentContainer>
                         <p css={tw`text-sm text-yellow-900`}>
-                            Maximum upload size is <strong>25 MB</strong>. Multiple files can be uploaded concurrently, but
+                            Maximum upload size is <strong>25 MB</strong>. Multiple files can be uploaded concurrently, but 
                             <strong>folders are not supported</strong>. Please use SFTP for uploading large files and folders.
                         </p>
                     </ContentContainer>
