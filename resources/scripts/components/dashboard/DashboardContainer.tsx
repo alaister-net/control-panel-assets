@@ -62,6 +62,13 @@ export default () => {
                 />
             </div>
             }
+            <div css={tw`mt-4 rounded bg-blue-500 p-3`}>
+                <ContentContainer>
+                    <p css={tw`text-sm text-blue-900`}>
+                        Please make sure to renew your servers every 7 days by running the <strong>/service renew</strong> command in our Discord server or by clicking a button in the client portal.
+                    </p>
+                </ContentContainer>
+            </div>
             {!servers ?
                 <Spinner centered size={'large'}/>
                 :
