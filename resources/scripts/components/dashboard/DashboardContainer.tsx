@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Server } from '@/api/server/getServer';
 import getServers from '@/api/getServers';
+import ContentContainer from '@/components/elements/ContentContainer';
 import ServerRow from '@/components/dashboard/ServerRow';
 import Spinner from '@/components/elements/Spinner';
 import PageContentBlock from '@/components/elements/PageContentBlock';
@@ -62,9 +63,9 @@ export default () => {
                 />
             </div>
             }
-            <div css={tw`mt-4 rounded bg-blue-500 p-3`}>
+            <div css={tw`mt-4 rounded bg-cyan-500 p-3`}>
                 <ContentContainer>
-                    <p css={tw`text-sm text-blue-900`}>
+                    <p css={tw`text-sm text-cyan-900`}>
                         Please make sure to renew your servers every 7 days by running the <strong>/service renew</strong> command in our Discord server or by clicking a button in the client portal.
                     </p>
                 </ContentContainer>
