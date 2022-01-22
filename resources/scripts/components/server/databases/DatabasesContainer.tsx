@@ -7,6 +7,7 @@ import DatabaseRow from '@/components/server/databases/DatabaseRow';
 import Spinner from '@/components/elements/Spinner';
 import CreateDatabaseButton from '@/components/server/databases/CreateDatabaseButton';
 import Can from '@/components/elements/Can';
+import ContentContainer from '@/components/elements/ContentContainer';
 import useFlash from '@/plugins/useFlash';
 import tw from 'twin.macro';
 import Fade from '@/components/elements/Fade';
@@ -38,6 +39,15 @@ export default () => {
 
     return (
         <ServerContentBlock title={'Databases'}>
+            <div css={tw`flex justify-center mb-4`}>
+                <div css={tw`mt-4 rounded bg-cyan-500 p-3`}>
+                    <ContentContainer>
+                        <p css={tw`text-sm text-cyan-900`}>
+                            Our database servers are powered by <strong>MariaDB 10.5</strong> <i>(fork of MySQL 5.7)</i>.
+                        </p>
+                    </ContentContainer>
+                </div>
+            </div>
             <FlashMessageRender byKey={'databases'} css={tw`mb-4`}/>
             {(!databases.length && loading) ?
                 <Spinner size={'large'} centered/>

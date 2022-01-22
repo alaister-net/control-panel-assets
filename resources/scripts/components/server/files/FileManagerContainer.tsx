@@ -60,7 +60,7 @@ export default () => {
 
     return (
         <ServerContentBlock title={'File Manager'} showFlashKey={'files'}>
-            <div css={tw`flex flex-wrap-reverse md:flex-nowrap justify-center mb-4`}>
+            <div css={tw`flex justify-center mb-4`}>
                 <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                     <ContentContainer>
                         <p css={tw`text-sm text-yellow-900`}>
