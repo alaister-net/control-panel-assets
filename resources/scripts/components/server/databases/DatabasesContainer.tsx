@@ -40,9 +40,9 @@ export default () => {
     return (
         <ServerContentBlock title={'Databases'}>
             <div css={tw`flex justify-center mb-4`}>
-                <div css={tw`mt-4 rounded bg-cyan-500 p-3`}>
+                <div css={tw`mt-4 rounded bg-primary-900 p-3`}>
                     <ContentContainer>
-                        <p css={tw`text-sm text-cyan-900`}>
+                        <p css={tw`text-sm`}>
                             Our database servers are powered by <strong>MariaDB 10.5</strong> <i>(fork of MySQL 5.7)</i>.
                         </p>
                     </ContentContainer>

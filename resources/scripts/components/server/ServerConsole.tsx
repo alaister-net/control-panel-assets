@@ -62,9 +62,9 @@ const ServerConsole = () => {
                     </div>
                 }
                 {dockerImage.includes(':nodejs_') &&
-                    <div css={tw`mt-4 rounded bg-cyan-500 p-3`}>
+                    <div css={tw`mt-4 rounded bg-primary-900 p-3`}>
                         <ContentContainer>
-                            <p css={tw`text-sm text-cyan-900`}>
+                            <p css={tw`text-sm`}>
                                 <strong>How to install packages with npm/yarn/pnpm commands?</strong><br />
                                 Start your server. Answer 'yes' to enable the 'Shell Access Mode'. Type your commands and 
                                 press enter to send it. Once it's done, send 'exit' to quit the mode and start your app.
@@ -73,9 +73,9 @@ const ServerConsole = () => {
                     </div>
                 }
                 {dockerImage.includes(':python_') &&
-                    <div css={tw`mt-4 rounded bg-cyan-500 p-3`}>
+                    <div css={tw`mt-4 rounded bg-primary-900 p-3`}>
                         <ContentContainer>
-                            <p css={tw`text-sm text-cyan-900`}>
+                            <p css={tw`text-sm`}>
                                 <strong>How to install packages with pip commands?</strong><br />
                                 Start your server. Answer 'yes' to enable the 'Shell Access Mode'. Type your commands and 
                                 press enter to send it. Once it's done, send 'exit' to quit the mode and start your app.
