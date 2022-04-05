@@ -7,15 +7,12 @@ import AccountApiContainer from '@/components/dashboard/AccountApiContainer';
 import { NotFound } from '@/components/elements/ScreenBlock';
 import TransitionRouter from '@/TransitionRouter';
 import SubNavigation from '@/components/elements/SubNavigation';
-import { useStoreState } from 'easy-peasy';
 
 export default ({ location }: RouteComponentProps) => {
-    const rootAdmin = useStoreState(state => state.user.data!.rootAdmin);
-
     return (
         <>
             <NavigationBar/>
-            {location.pathname.startsWith('/account') && rootAdmin &&
+            {location.pathname.startsWith('/account') &&
             <SubNavigation>
                 <div>
                     <NavLink to={'/account'} exact>Settings</NavLink>
@@ -31,11 +28,9 @@ export default ({ location }: RouteComponentProps) => {
                     <Route path={'/account'} exact>
                         <AccountOverviewContainer/>
                     </Route>
-                    {rootAdmin &&
                     <Route path={'/account/api'} exact>
                         <AccountApiContainer/>
                     </Route>
-                    }
                     <Route path={'*'}>
                         <NotFound/>
                     </Route>

@@ -15,12 +15,14 @@ import { format } from 'date-fns';
 import PageContentBlock from '@/components/elements/PageContentBlock';
 import tw from 'twin.macro';
 import GreyRowBox from '@/components/elements/GreyRowBox';
+import { useStoreState } from 'easy-peasy';
 
 export default () => {
     const [ deleteIdentifier, setDeleteIdentifier ] = useState('');
     const [ keys, setKeys ] = useState<ApiKey[]>([]);
     const [ loading, setLoading ] = useState(true);
     const { addError, clearFlashes } = useStoreActions((actions: Actions<ApplicationStore>) => actions.flashes);
+    const rootAdmin = useStoreState(state => state.user.data!.rootAdmin);
 
     useEffect(() => {
         clearFlashes('account');
@@ -52,7 +54,9 @@ export default () => {
             <FlashMessageRender byKey={'account'}/>
             <div css={tw`md:flex flex-nowrap my-10`}>
                 <ContentBox title={'Create API Key'} css={tw`flex-none w-full md:w-1/2`}>
+                    { (keys.length === 0 || rootAdmin) &&
                     <CreateApiKeyForm onKeyCreated={key => setKeys(s => ([ ...s!, key ]))}/>
+                    }
                 </ContentBox>
                 <ContentBox title={'API Keys'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
                     <SpinnerOverlay visible={loading}/>

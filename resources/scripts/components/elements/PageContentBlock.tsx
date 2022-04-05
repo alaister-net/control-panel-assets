@@ -31,13 +31,13 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({ title, showFlashKey
                 </ContentContainer>
                 <ContentContainer css={tw`mb-4`}>
                     <p css={tw`text-center text-neutral-500 text-xs`}>
-                        &copy; {(new Date()).getFullYear()}&nbsp;
+                        &copy; Copyright 2021-{(new Date()).getFullYear()}&nbsp;
                         <a
                             href={'https://alaister.net'}
                             target={'_blank'}
                             css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
                         >
-                            Alaister.net
+                            Alaister.net Hosting
                         </a>
                     </p>
                 </ContentContainer>
