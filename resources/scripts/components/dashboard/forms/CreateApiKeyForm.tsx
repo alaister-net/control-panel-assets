@@ -52,6 +52,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
             <Formik
                 onSubmit={submit}
                 initialValues={{ description: '', allowedIps: '' }}
+                css={tw`bg-theme-main-2`}
                 validationSchema={object().shape({
                     allowedIps: string(),
                     description: string().required().min(4),

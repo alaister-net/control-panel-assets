@@ -41,7 +41,7 @@
 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8826541345134443" crossorigin="anonymous"></script>
     </head>
-    <body class="{{ $css['body'] ?? 'bg-neutral-50' }}">
+    <body class="bg-theme-main">
         @section('content')
             @yield('above-container')
             @yield('container')

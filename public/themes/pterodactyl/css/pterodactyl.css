@@ -23,7 +23,7 @@
  @import 'checkbox.css';
 
 .login-page {
-    background: #10529f;
+    background: #282a36;
 }
 
 #login-position-elements {
@@ -565,7 +565,7 @@ body {
 }
 
 .content-wrapper {
-    background-color: #33404d;
+    background-color: #282a36;
 }
 
 .btn-success {
@@ -632,7 +632,7 @@ body {
 }
 
 .table-hover>tbody>tr:hover {
-    background-color: #33404d;
+    background-color: #282a36;
 }
 
 a {
@@ -776,12 +776,10 @@ code {
 }
 
 a {
-    color: #288afb;
+    color: #007eff;
 }
 
-a:hover {
-    color: #206ec7;
-}
+
 
 .form-control {
     border-color: #606d7b;

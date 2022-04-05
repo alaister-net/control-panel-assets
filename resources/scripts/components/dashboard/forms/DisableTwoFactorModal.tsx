@@ -39,6 +39,7 @@ const DisableTwoFactorModal = () => {
     return (
         <Formik
             onSubmit={submit}
+            css={tw`bg-theme-main-2`}
             initialValues={{
                 password: '',
             }}

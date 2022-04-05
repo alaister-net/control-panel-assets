@@ -12,7 +12,7 @@ import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import { useState } from 'react';
 
 const Navigation = styled.div`
-    ${tw`w-full bg-neutral-900 shadow-md overflow-x-auto`};
+    ${tw`w-full bg-theme-main-2 shadow-2xl overflow-x-auto`};
     
     & > div {
         ${tw`mx-auto w-full flex items-center`};
@@ -22,23 +22,23 @@ const Navigation = styled.div`
         ${tw`flex-1`};
         
         & > a {
-            ${tw`text-2xl font-header px-4 no-underline text-neutral-200 hover:text-neutral-100 transition-colors duration-150`};
+            ${tw`text-2xl bg-theme-main-2 font-header px-4 no-underline text-neutral-200 hover:text-neutral-100 transition-colors duration-150`};
         }
     }
 `;
 
 const RightNavigation = styled.div`
-    ${tw`flex h-full items-center justify-center`};
+    ${tw`flex bg-theme-main-2 h-full items-center justify-center`};
     
     & > a, & > button, & > .navigation-link {
-        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer transition-all duration-150`};
+        ${tw`flex items-center h-full no-underline text-neutral-300 px-6 cursor-pointer transition-all duration-150 bg-theme-main-2`};
         
         &:active, &:hover {
-            ${tw`text-neutral-100 bg-black`};
+            ${tw`text-neutral-100 bg-theme-main-2`};
         }
         
         &:active, &:hover, &.active {
-            box-shadow: inset 0 -2px ${theme`colors.cyan.700`.toString()};
+            box-shadow: inset 0 -2px #dc143c;
         }
     }
 `;

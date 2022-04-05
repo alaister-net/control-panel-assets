@@ -9,6 +9,11 @@ module.exports = {
             transparent: 'transparent',
             black: 'hsl(210, 27%, 10%)',
             white: '#ffffff',
+	    theme: {
+		accent: 'hsl(347, 80%, 43%)',
+		main: 'hsl(231, 14%, 18%)',
+		'main-2': 'hsl(230, 15%, 16%)', 
+ 	    },
             primary: {
                 50: 'hsl(202, 100%, 95%)', // lightest
                 100: 'hsl(204, 100%, 86%)', // lighter

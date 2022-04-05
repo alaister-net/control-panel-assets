@@ -50,6 +50,7 @@ export default () => {
         <Formik
             onSubmit={submit}
             validationSchema={schema}
+            css={tw`bg-theme-main-2`}
             initialValues={{ email: user!.email, password: '' }}
         >
             {
