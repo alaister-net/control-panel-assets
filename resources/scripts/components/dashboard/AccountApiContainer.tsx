@@ -54,9 +54,10 @@ export default () => {
             <FlashMessageRender byKey={'account'}/>
             <div css={tw`md:flex flex-nowrap my-10`}>
                 <ContentBox title={'Create API Key'} css={tw`flex-none w-full md:w-1/2`}>
-                    { (keys.length === 0 || rootAdmin) &&
-                    <CreateApiKeyForm onKeyCreated={key => setKeys(s => ([ ...s!, key ]))}/>
-                    }
+                    <CreateApiKeyForm
+                        onKeyCreated={key => setKeys(s => ([ ...s!, key ]))}
+                        showForm={(keys.length === 0 || rootAdmin)}
+                    />
                 </ContentBox>
                 <ContentBox title={'API Keys'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
                     <SpinnerOverlay visible={loading}/>

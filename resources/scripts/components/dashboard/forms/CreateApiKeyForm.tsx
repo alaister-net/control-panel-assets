@@ -21,7 +21,7 @@ interface Values {
 
 const CustomTextarea = styled(Textarea)`${tw`h-32`}`;
 
-export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
+export default ({ onKeyCreated, showForm }: { onKeyCreated: (key: ApiKey) => void, showForm: boolean }) => {
     const [ apiKey, setApiKey ] = useState('');
     const { addError, clearFlashes } = useStoreActions((actions: Actions<ApplicationStore>) => actions.flashes);
 
@@ -49,6 +49,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                 onModalDismissed={() => setApiKey('')}
                 apiKey={apiKey}
             />
+            { showForm &&
             <Formik
                 onSubmit={submit}
                 initialValues={{ description: '', allowedIps: '' }}
@@ -82,6 +83,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                     </Form>
                 )}
             </Formik>
+            }
         </>
     );
 };
