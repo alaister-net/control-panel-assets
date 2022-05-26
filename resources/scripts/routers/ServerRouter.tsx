@@ -48,7 +48,7 @@ const ConflictStateRenderer = () => {
                 <ScreenBlock
                     title={'Server Suspended'}
                     image={ServerErrorSvg}
-                    message={'Please renew your server by running the `/service renew` command in our Discord server or by clicking a button in the client portal.'}
+                    message={'Please renew your account by running the /renew` command in our Discord server or by clicking a button in the client portal.'}
                 />
                 :
                 <ScreenBlock

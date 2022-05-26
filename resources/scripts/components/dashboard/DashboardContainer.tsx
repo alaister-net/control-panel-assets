@@ -67,7 +67,7 @@ export default () => {
                 <div css={tw`mt-4 rounded bg-primary-900 p-3`}>
                     <ContentContainer>
                         <p css={tw`text-sm`}>
-                            Please make sure to renew your servers <strong>every 7 days</strong> by running the <strong>/service renew</strong> command in our Discord server or by clicking a button in the client portal.
+                            Please be reminded to renew your account <strong>every 14 days</strong> by running the <strong>/renew</strong> command in our Discord server or by clicking a button in the client portal.
                         </p>
                     </ContentContainer>
                 </div>
