@@ -50,24 +50,13 @@ const ServerConsole = () => {
                             <PowerControls/>
                         </Can>
                 }
-                {dockerImage.includes(':minecraft_java_') && !dockerImage.includes(':minecraft_java_no_hibernate_') &&
-                    <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
-                        <ContentContainer>
-                            <p css={tw`text-sm text-yellow-900`}>
-                                <strong>Hibernation is enabled!</strong><br />
-                                When your server has NO online players, you can ignore the 'Can't keep up!' warnings in the console.
-                                <strong>Your server run normally when there is one or more online players.</strong>
-                            </p>
-                        </ContentContainer>
-                    </div>
-                }
                 {dockerImage.includes(':nodejs_') &&
                     <div css={tw`mt-4 rounded bg-primary-900 p-3`}>
                         <ContentContainer>
                             <p css={tw`text-sm`}>
                                 <strong>How to install packages with npm/yarn/pnpm commands?</strong><br />
-                                Start your server. Answer 'yes' to enable the 'Shell Access Mode'. Type your commands and 
-                                press enter to send it. Once it's done, send 'exit' to quit the mode and start your app.
+                                Start your server and answer 'yes' when prompted to enable 'Shell Access'. Type your commands and 
+                                press enter to send. Once you're done, send 'exit' to quit. Your app will then start.
                             </p>
                         </ContentContainer>
                     </div>
@@ -77,8 +66,8 @@ const ServerConsole = () => {
                         <ContentContainer>
                             <p css={tw`text-sm`}>
                                 <strong>How to install packages with pip commands?</strong><br />
-                                Start your server. Answer 'yes' to enable the 'Shell Access Mode'. Type your commands and 
-                                press enter to send it. Once it's done, send 'exit' to quit the mode and start your app.
+                                Start your server and answer 'yes' when prompted to enable 'Shell Access'. Type your commands and 
+                                press enter to send. Once you're done, send 'exit' to quit. Your app will then start.
                             </p>
                         </ContentContainer>
                     </div>

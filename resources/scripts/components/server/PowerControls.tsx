@@ -2,6 +2,7 @@ import React from 'react';
 import tw from 'twin.macro';
 import Can from '@/components/elements/Can';
 import Button from '@/components/elements/Button';
+import StopOrKillButton from '@/components/server/StopOrKillButton';
 import { PowerAction } from '@/components/server/ServerConsole';
 import { ServerContext } from '@/state/server';
 
@@ -14,7 +15,7 @@ const PowerControls = () => {
     };
 
     return (
-           <div css={tw`shadow-md bg-theme-main-2 rounded p-3 flex text-xs mt-4 justify-center`}>
+        <div css={tw`shadow-md bg-theme-main-2 rounded p-3 flex text-xs mt-4 justify-center`}>
             <Can action={'control.start'}>
                 <Button
                     size={'xsmall'}
@@ -33,7 +34,6 @@ const PowerControls = () => {
             <Can action={'control.restart'}>
                 <Button
                     size={'xsmall'}
-                    color={'yellow'}
                     isSecondary
                     css={tw`mr-2`}
                     disabled={!status}
@@ -46,34 +46,7 @@ const PowerControls = () => {
                 </Button>
             </Can>
             <Can action={'control.stop'}>
-                <Button
-                    size={'xsmall'}
-                    color={'red'}
-                    isSecondary
-                    css={tw`mr-2`}
-                    disabled={!status || status === 'offline'}
-                    onClick={e => {
-                        e.preventDefault();
-                        sendPowerCommand('stop');
-                    }}
-                >
-                    Stop
-                </Button>
-            </Can>
-            <Can action={'control.kill'}>
-                <Button
-                    size={'xsmall'}
-                    color={'red'}
-                    isSecondary
-                    css={tw`mr-2`}
-                    disabled={!status || status === 'offline'}
-                    onClick={e => {
-                        e.preventDefault();
-                        sendPowerCommand('kill');
-                    }}
-                >
-                    Kill
-                </Button>
+                <StopOrKillButton onPress={action => sendPowerCommand(action)}/>
             </Can>
         </div>
     );

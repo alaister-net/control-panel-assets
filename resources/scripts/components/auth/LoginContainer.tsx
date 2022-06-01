@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import login from '@/api/auth/login';
 import LoginFormContainer from '@/components/auth/LoginFormContainer';
-import { useStoreState } from 'easy-peasy';
 import { Formik, FormikHelpers } from 'formik';
 import { object, string } from 'yup';
 import Field from '@/components/elements/Field';
@@ -21,7 +20,6 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
     const [ token, setToken ] = useState('');
 
     const { clearFlashes, clearAndAddHttpError } = useFlash();
-    const { enabled: recaptchaEnabled, siteKey } = useStoreState(state => state.settings.data!.recaptcha);
 
     useEffect(() => {
         clearFlashes();
@@ -45,19 +43,6 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
 
     const onSubmit = (values: Values, { setSubmitting }: FormikHelpers<Values>) => {
         clearFlashes();
-
-        // If there is no token in the state yet, request the token and then abort this submit request
-        // since it will be re-submitted when the recaptcha data is returned by the component.
-        if (recaptchaEnabled && !token) {
-            ref.current!.execute().catch(error => {
-                console.error(error);
-
-                setSubmitting(false);
-                clearAndAddHttpError({ error });
-            });
-
-            return;
-        }
 
         login({ ...values, recaptchaData: token })
             .then(response => {
@@ -92,7 +77,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                 password: string().required('Please enter your account password.'),
             })}
         >
-            {({ isSubmitting, setSubmitting, submitForm }) => (
+            {({ isSubmitting }) => (
                 <LoginFormContainer title={'Alaister.net Game Panel'} css={tw`w-full flex`}>
                     <Field
                         light
@@ -112,29 +97,6 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                     </div>
                     <div css={tw`mt-6`}>
                         <Button type={'submit'} size={'xlarge'} isLoading={true} disabled={isSubmitting} id={'pterodactyl_login'} />
-                    </div>
-                    {recaptchaEnabled &&
-                    <Reaptcha
-                        ref={ref}
-                        size={'invisible'}
-                        sitekey={siteKey || '_invalid_key'}
-                        onVerify={response => {
-                            setToken(response);
-                            submitForm();
-                        }}
-                        onExpire={() => {
-                            setSubmitting(false);
-                            setToken('');
-                        }}
-                    />
-                    }
-                    <div css={tw`mt-6 text-center`}>
-                        <Link
-                            to={'/auth/password'}
-                            css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
-                        >
-                            Forgot password?
-                        </Link>
                     </div>
                 </LoginFormContainer>
             )}

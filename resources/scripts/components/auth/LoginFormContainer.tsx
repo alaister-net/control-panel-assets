@@ -47,7 +47,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             </div>
         </Form>
         <p css={tw`text-center text-neutral-500 text-xs mt-4`}>
-            &copy; {(new Date()).getFullYear()}&nbsp;
+            &copy; 2021 - {(new Date()).getFullYear()}&nbsp;
             <a
                 href={'https://alaister.net'}
                 target={'_blank'}

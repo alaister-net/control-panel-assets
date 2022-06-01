@@ -6,7 +6,7 @@ import Spinner from '@/components/elements/Spinner';
 interface Props {
     isLoading?: boolean;
     size?: 'xsmall' | 'small' | 'large' | 'xlarge';
-    color?: 'green' | 'red' | 'primary' | 'grey' | 'yellow';
+    color?: 'green' | 'red' | 'primary' | 'grey';
     isSecondary?: boolean;
 }
 
@@ -15,7 +15,6 @@ const ButtonStyle = styled.button<Omit<Props, 'isLoading'>>`
     
     ${props => ((!props.isSecondary && !props.color) || props.color === 'primary') && css<Props>`
         ${props => !props.isSecondary && tw`bg-theme-accent border-theme-accent border text-primary-50`};
-        
     `};
     
     ${props => props.color === 'grey' && css`
@@ -53,20 +52,6 @@ const ButtonStyle = styled.button<Omit<Props, 'isLoading'>>`
             }
         `};
     `};
-
-    ${props => props.color === 'yellow' && css<Props>`
-        ${tw`border-yellow-600 bg-yellow-500 text-yellow-50`};
-        
-        &:hover:not(:disabled) {
-            ${tw`bg-yellow-600 border-yellow-700`};
-        }
-        
-        ${props => props.isSecondary && css`
-            &:active:not(:disabled) {
-                ${tw`bg-yellow-600 border-yellow-700`};
-            }
-        `};
-    `};
     
     ${props => props.size === 'xsmall' && tw`px-2 py-1 text-xs`};
     ${props => (!props.size || props.size === 'small') && tw`px-4 py-2`};
@@ -79,8 +64,7 @@ const ButtonStyle = styled.button<Omit<Props, 'isLoading'>>`
         &:hover:not(:disabled) {
             ${tw`border-neutral-500 text-neutral-100`};
             ${props => props.color === 'red' && tw`bg-red-500 border-red-600 text-red-50`};
-            ${props => props.color === 'yellow' && tw`bg-yellow-500 border-yellow-600 text-yellow-50`};
-            ${props => props.color === 'primary' && tw`text-primary-50`};
+            ${props => props.color === 'primary' && tw`bg-primary-500 border-primary-600 text-primary-50`};
             ${props => props.color === 'green' && tw`bg-green-500 border-green-600 text-green-50`};
         }
     `};

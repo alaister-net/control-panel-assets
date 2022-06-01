@@ -13,7 +13,7 @@ export const DropdownButtonRow = styled.button<{ danger?: boolean }>`
     transition: 150ms all ease;
 
     &:hover {
-        ${tw`text-neutral-700 bg-theme-main-2`};
+        ${props => props.danger ? tw`text-red-700 bg-red-100` : tw`text-neutral-700 bg-theme-main-2`};
     }
 `;
 

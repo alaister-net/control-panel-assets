@@ -44,7 +44,7 @@ const VariableBox = ({ variable }: Props) => {
             })
             .then(() => setLoading(false));
     }, 500);
-    
+
     const useSwitch = variable.rules.some(v => v === 'boolean' || v === 'in:0,1');
     const selectValues = variable.rules.find(v => v.startsWith('in:'))?.split(',') || [];
 
