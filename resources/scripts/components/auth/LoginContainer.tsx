@@ -78,7 +78,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
             })}
         >
             {({ isSubmitting }) => (
-                <LoginFormContainer title={'Alaister.net Game Panel'} css={tw`w-full flex`}>
+                <LoginFormContainer title={'Alaister.net Control Panel'} css={tw`w-full flex`}>
                     <Field
                         light
                         type={'text'}

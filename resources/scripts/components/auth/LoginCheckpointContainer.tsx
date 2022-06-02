@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import loginCheckpoint from '@/api/auth/loginCheckpoint';
 import LoginFormContainer from '@/components/auth/LoginFormContainer';
 import { ActionCreator } from 'easy-peasy';
@@ -64,14 +64,6 @@ const LoginCheckpointContainer = () => {
                 >
                     {!isMissingDevice ? 'I\'ve Lost My Device' : 'I Have My Device'}
                 </span>
-            </div>
-            <div css={tw`mt-6 text-center`}>
-                <Link
-                    to={'/auth/login'}
-                    css={tw`text-xs text-neutral-500 tracking-wide uppercase no-underline hover:text-neutral-700`}
-                >
-                    Return to Login
-                </Link>
             </div>
         </LoginFormContainer>
     );
